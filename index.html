@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Handlebars Exercise</title>
+  <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"> -->
 </head>
   <body>
     <h1>Here's a random user</h1>
 
   <!-- output div -->
+    <div id="htmlOutput"></div>
 
   <!-- handlebars script -->
-
+    <script id="randomUser" type="text/x-handlebars-template">
+      <div>
+        <h1 id="userName">{{name.first}} {{name.last}}</h1>
+        <h4 id="userAddress">{{location.street}} {{location.city}} {{location.state}} {{location.postcode}}</h4>
+        <h4 id="userEmail">{{email}}</h4>
+      </div>
+    </script>
   <!-- regular javascript scripts -->
-    
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="myJavascript.js"></script>
   </body>
 </html>
