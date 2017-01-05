@@ -36,3 +36,43 @@ console.log(randomUser.results[0])
 
 //handlebars step four: put the complete HTML into the DOM
 $('#htmlOutput').append(outputStuff)
+
+// $.ajax({
+//   url: 'https://randomuser.me/api/',
+//   dataType: 'json',
+//   success: function(data) {
+//     console.log(data);
+//     console.log(data.results[0].name)
+//   }
+// });
+
+var userList;
+
+var promise = new Promise(function (resolve, reject) {
+  $.ajax({
+  url: 'https://randomuser.me/api/',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+    resolve(data);
+  }
+})
+});
+
+console.log(promise)
+
+promise
+  .then(
+    function(data) {
+      //handlebars step one: grap the html from the script tag
+      var newHTML = $('#newUser').html();
+
+      //handlebars step two: compile it into a template
+      var newTemplate = Handlebars.compile(newHTML);
+
+      //handlebars step three:render the HTML by passing the data to the template
+      var outputNewStuff = newTemplate(data.results[0])
+      console.log(outputNewStuff)
+      $('#newOutput').append(outputNewStuff)
+    }
+  )

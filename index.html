@@ -7,9 +7,10 @@
 </head>
   <body>
     <h1>Here's a random user</h1>
-
+<!-- <img src="" alt=""> -->
   <!-- output div -->
     <div id="htmlOutput"></div>
+    <div id="newOutput"></div>
 
   <!-- handlebars script -->
     <script id="randomUser" type="text/x-handlebars-template">
@@ -17,6 +18,16 @@
         <h1 id="userName">{{name.first}} {{name.last}}</h1>
         <h4 id="userAddress">{{location.street}} {{location.city}} {{location.state}} {{location.postcode}}</h4>
         <h4 id="userEmail">{{email}}</h4>
+        <img src="{{picture.medium}}">
+      </div>
+    </script>
+
+    <script id="newUser" type="text/x-handlebars-template">
+      <div>
+        <h1>{{name.first}} {{name.last}}</h1>
+        <h4>{{location.street}} {{location.city}} {{location.state}} {{location.postcode}}</h4>
+        <h4>{{email}}</h4>
+        <img src="{{picture.medium}}">
       </div>
     </script>
   <!-- regular javascript scripts -->
